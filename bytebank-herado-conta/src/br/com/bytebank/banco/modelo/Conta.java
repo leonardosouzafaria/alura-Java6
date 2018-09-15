@@ -17,6 +17,7 @@ public abstract class Conta {
 
 	/**
 	 * Contruto para inicializar o objeto conta a partir da agencia e numero
+	 * 
 	 * @param agencia
 	 * @param numero
 	 */
@@ -28,17 +29,33 @@ public abstract class Conta {
 		// this.saldo = 100;
 		// System.out.println("Estou criando uma conta " + this.numero);
 	}
-	
-	//ToString()
+
+	// ToString()
 	public String toString() {
-		return "número : " + this.getNumero() + ", Agencia : " +this.getAgencia();
+		return "número : " + this.getNumero() + ", Agencia : " + this.getAgencia();
+	}
+
+	@Override
+	public boolean equals(Object ref) {
+
+		Conta outra = (Conta) ref;
+
+		if (this.agencia != outra.agencia) {
+			return false;
+		}
+
+		if (this.numero != outra.numero) {
+			return false;
+		}
+
+		return true;
 	}
 
 	public abstract void deposita(double valor);
-	
-	
+
 	/**
 	 * Valor precisa ser menor ou igual ao saldo
+	 * 
 	 * @param valor
 	 * @throws SaldoInsuficienteException
 	 */
