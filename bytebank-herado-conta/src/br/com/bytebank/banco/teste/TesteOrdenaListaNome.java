@@ -50,9 +50,9 @@ public class TesteOrdenaListaNome {
 		System.out.println("--------------------");
 		
 //		TitularDaContaComparator comparator = new TitularDaContaComparator();
-//		lista.sort(comparator);
+		lista.sort(null);
 		
-		lista.sort(new TitularDaContaComparator());
+//		lista.sort(new TitularDaContaComparator());
 		
 		for (Conta conta : lista) {
 			System.out.println(conta + " Titular: " + conta.getTitular().getNome());
