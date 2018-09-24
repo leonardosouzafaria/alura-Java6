@@ -8,7 +8,7 @@ import br.com.bytebank.banco.modelo.Conta;
 import br.com.bytebank.banco.modelo.ContaCorrente;
 import br.com.bytebank.banco.modelo.ContaPoupanca;
 
-public class Teste {
+public class TesteOrdenacao {
 
 	public static void main(String[] args) {
 		Conta cc1 = new ContaCorrente(22, 33);
@@ -32,25 +32,19 @@ public class Teste {
 		for (Conta conta : lista) {
 			System.out.println(conta);
 		}
-
+		
 		System.out.println("------------------");
 
-		NumeroDaContaComparator2 comparator = new NumeroDaContaComparator2();
+		NumeroDaContaComparator comparator = new NumeroDaContaComparator();
+		lista.sort(comparator);
 		
-		lista.sort(new Comparator<Conta>() {
-			@Override
-			public int compare(Conta c1, Conta c2) {
-				return Integer.compare(c1.getNumero(), c2.getNumero());
-			}
-		});
-
 		for (Conta conta : lista) {
 			System.out.println(conta);
 		}
 
 	}
 
-	public static class NumeroDaContaComparator2 implements Comparator<Conta> {
+	public static class NumeroDaContaComparator implements Comparator<Conta> {
 
 		@Override
 		public int compare(Conta c1, Conta c2) {
